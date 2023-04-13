@@ -1,6 +1,8 @@
 package br.com.controledeestoque.estoquebilly;
 
-public class PessoaJuridica extends Fornecedor  {
+import br.com.controledeestoque.metodos.Estoque;
+
+public class PessoaJuridica extends Fornecedor implements Estoque{
     private String cnpj;
     private boolean  empresaParceira;
 
@@ -26,6 +28,14 @@ public class PessoaJuridica extends Fornecedor  {
         System.out.println("Total do Capital:  " + getCapital());
     }
 
+    @Override
+    public void imprimirEstoque() {
+        System.out.println("\n Estoque de café cru: " + getCafeCru());
+        System.out.println("Estoque de café torrado: " + getCafeTorrado());
+        System.out.println("Estoque de café moído: " + getCafeMoido());
+    }
+    }
+
     
 
-}
+
