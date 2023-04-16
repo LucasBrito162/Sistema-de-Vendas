@@ -1,7 +1,7 @@
 package br.com.controledeestoque.estoquebilly;
 
 
-public class Fornecedor {
+public class Fornecedor  {
 
     private String nome;
     private double cafeCru ;

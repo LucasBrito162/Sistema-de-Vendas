@@ -1,13 +1,12 @@
 package br.com.controledeestoque.estoquebilly;
 
 
+
 public class PessoaJuridica extends Fornecedor{
     private String cnpj;
    
-    
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
-    }
+ 
+   
 
     public String getCnpj() {
         return cnpj;
@@ -15,10 +14,16 @@ public class PessoaJuridica extends Fornecedor{
 
 
 
+
     public PessoaJuridica(String setNome, String cnpj, boolean cartaoFidelidade, double setCapital) {
         super.setNome(setNome);
-        this.cnpj = cnpj;
-      super.setCartaoFidelidade(cartaoFidelidade);
+        
+        if (cnpj.length() ==14 && cnpj.matches("\\d+")){
+           this.cnpj = cnpj;
+        
+         } else 
+          throw new IllegalArgumentException("O cnpj precisa conter 14 numeros!");
+         super.setCartaoFidelidade(cartaoFidelidade);
         super.setCapital(setCapital);
   
     }
@@ -32,7 +37,8 @@ public class PessoaJuridica extends Fornecedor{
     }
 
 
-    }
+}
+
 
     
 

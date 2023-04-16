@@ -1,12 +1,11 @@
 package br.com.controledeestoque.metodos;
 
 import br.com.controledeestoque.estoquebilly.Fornecedor;
-import br.com.controledeestoque.estoquebilly.PessoaJuridica;
 
 public class SistemaDeCompra extends Fornecedor {
 
     public void comprarCafeCru(double quantidade, Fornecedor fornecedor, Fornecedor comprador) {
-        if (quantidade <= fornecedor.getCafeCru()&&  comprador.isCartaoFidelidade() == true && quantidade > 100) {
+        if (quantidade <= fornecedor.getCafeCru()&&  comprador.isCartaoFidelidade() == true && quantidade > 100 && comprador.getCapital() >= quantidade *getValorCafeCru()) {
             comprador.setCafeCru(comprador.getCafeCru()+ quantidade); 
             fornecedor.setCafeCru(fornecedor.getCafeCru() - quantidade);// Aqui vai tirar do Fornecedor e passar para quem esta comprando
             
@@ -17,7 +16,7 @@ public class SistemaDeCompra extends Fornecedor {
             System.out.println("Compra de café cru realizada com desconto! ");
 
        
-        } else  if (quantidade <= fornecedor.getCafeCru()&& comprador.isCartaoFidelidade() == false) {
+        } else  if (quantidade <= fornecedor.getCafeCru()&& comprador.isCartaoFidelidade() == false && comprador.getCapital() >= quantidade *getValorCafeCru()) {
 
             comprador.setCafeCru(comprador.getCafeCru()+ quantidade); 
             fornecedor.setCafeCru(fornecedor.getCafeCru() - quantidade);// Aqui vai tirar do Fornecedor e passar para quem esta comprando
@@ -32,7 +31,7 @@ public class SistemaDeCompra extends Fornecedor {
     }
 
     public void comprarCafeTorrado(int quantidade, Fornecedor fornecedor, Fornecedor comprador) {
-        if (quantidade <= fornecedor.getCafeTorrado()&&  comprador.isCartaoFidelidade() == true && quantidade > 100) {
+        if (quantidade <= fornecedor.getCafeTorrado()&&  comprador.isCartaoFidelidade() == true && quantidade > 100 && comprador.getCapital() >= quantidade *getValorCafeTorrado()) {
             comprador.setCafeTorrado(comprador.getCafeTorrado()+ quantidade); 
             fornecedor.setCafeTorrado(fornecedor.getCafeTorrado() - quantidade);// Aqui vai tirar do Fornecedor e passar para quem esta comprando
             comprador.setCapital((comprador.getCapital() -quantidade*getValorCafeTorrado() * getDesconto()));
@@ -42,7 +41,7 @@ public class SistemaDeCompra extends Fornecedor {
             System.out.println("Compra de café torrado realizada com desconto! ");
 
        
-        } else if (quantidade <= fornecedor.getCafeTorrado()&& comprador.isCartaoFidelidade() == false) {
+        } else if (quantidade <= fornecedor.getCafeTorrado()&& comprador.isCartaoFidelidade() == false&& comprador.getCapital() >= quantidade *getValorCafeTorrado()) {
             comprador.setCafeTorrado(comprador.getCafeTorrado() + quantidade);
             fornecedor.setCafeTorrado(fornecedor.getCafeTorrado() - quantidade);
             comprador.setCapital((comprador.getCapital() -quantidade* getValorCafeTorrado()));
@@ -56,7 +55,7 @@ public class SistemaDeCompra extends Fornecedor {
         }
     }
     public void comprarCafeMoido(int quantidade, Fornecedor fornecedor, Fornecedor comprador) {
-        if (quantidade <= fornecedor.getCafeMoido()&&  comprador.isCartaoFidelidade() == true && quantidade > 100) {
+        if (quantidade <= fornecedor.getCafeMoido()&&  comprador.isCartaoFidelidade() == true && quantidade > 100&& comprador.getCapital() >= quantidade *getValorCafeMoido()) {
             comprador.setCafeMoido(comprador.getCafeMoido()+ quantidade); 
             fornecedor.setCafeMoido(fornecedor.getCafeMoido() - quantidade);// Aqui vai tirar do Fornecedor e passar para quem esta comprando
             comprador.setCapital((comprador.getCapital() -quantidade*getValorCafeMoido() * getDesconto()));
@@ -66,7 +65,7 @@ public class SistemaDeCompra extends Fornecedor {
             System.out.println("Compra de café moido realizada com desconto! ");
 
        
-        } else if (quantidade <= fornecedor.getCafeMoido()&& comprador.isCartaoFidelidade() == false) {
+        } else if (quantidade <= fornecedor.getCafeMoido()&& comprador.isCartaoFidelidade() == false && comprador.getCapital() >= quantidade *getValorCafeMoido()) {
             comprador.setCafeMoido(comprador.getCafeMoido() + quantidade);
             fornecedor.setCafeMoido(fornecedor.getCafeMoido() - quantidade);
             comprador.setCapital((comprador.getCapital() -quantidade*getValorCafeMoido()));

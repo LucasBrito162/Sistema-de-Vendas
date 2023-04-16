@@ -13,7 +13,7 @@ public class App {
         fornecedor.setCafeTorrado(1000);
         
 
-        PessoaJuridica pessoaJuridica = new PessoaJuridica("Café Mania","12345644", true, 10000.00);
+        PessoaJuridica pessoaJuridica = new PessoaJuridica("Café Mania","lucasdebritonu", true, 10000.00);
         pessoaJuridica.dadosPessoaJuridica();
         sistemaDeCompra.comprarCafeCru(200, fornecedor, pessoaJuridica);
         System.out.println("\n ESTOQUE DO CAFÉ MANIA");
@@ -21,7 +21,7 @@ public class App {
 
 
 
-        PessoaJuridica pessoaJuridica2 = new PessoaJuridica("Cafe Caval", "123456789858", false, 10000);
+        PessoaJuridica pessoaJuridica2 = new PessoaJuridica("Cafe Caval", "lucasdebritonu", false, 10000);
         pessoaJuridica2.dadosPessoaJuridica();
         sistemaDeCompra.comprarCafeCru(200, fornecedor, pessoaJuridica2);
         System.out.println("\n ESTOQUE DO CAFÉ CAVAL");

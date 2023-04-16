@@ -1,6 +1,6 @@
 package br.com.controledeestoque.estoquebilly;
 
-import br.com.controledeestoque.metodos.CalculosDeDescontos;
+
 
 public class PessoaFisica extends Fornecedor {
     private String cpf;
@@ -16,7 +16,11 @@ public class PessoaFisica extends Fornecedor {
   
     public PessoaFisica(String setNome, String cpf, boolean cartaoFidelidade, double setCapital) {
         super.setNome(setNome);
-        this.cpf = cpf;
+        if (cpf.length() ==11 && cpf.matches("\\d+")){  // a expressão regular de \\d+ serve para que String receba apenas digito numérico
+            this.cpf = cpf;
+         
+          } else 
+           throw new IllegalArgumentException("O cpf precisa conter 11 numeros!");
         super.isCartaoFidelidade();
         super.setCapital(setCapital);
     }
