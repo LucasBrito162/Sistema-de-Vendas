@@ -1,14 +1,34 @@
 package br.com.controledeestoque.estoquebilly;
 
-import br.com.controledeestoque.metodos.Estoque;
 
-public class Fornecedor implements Estoque{
+public class Fornecedor {
 
     private String nome;
-    private int cafeCru ;
-    private int cafeTorrado;
-    private int cafeMoido ;
+    private double cafeCru ;
+    private double cafeTorrado;
+    private double cafeMoido ;
     private double capital;
+    private boolean cartaoFidelidade;
+    private double valorCafeCru = 4.5;
+    private double valorCafeTorrado = 5.0;
+    private double valorCafeMoido = 6;
+    private double desconto = 0.3;
+    
+
+    public double getDesconto() {
+        return desconto;
+    }
+    public double getValorCafeCru() {
+        return valorCafeCru;
+    }
+
+    public double getValorCafeTorrado() {
+        return valorCafeTorrado;
+    }
+
+    public double getValorCafeMoido() {
+        return valorCafeMoido;
+    }
 
     public double getCapital() {
         return capital;
@@ -27,68 +47,56 @@ public class Fornecedor implements Estoque{
         return this.nome = nome;
     }
 
-    public int getCafeCru() {
+    public double getCafeCru() {
         return cafeCru;
     }
 
-    public void setCafeCru(int cafeCru) {
+    public void setCafeCru(double cafeCru) {
         this.cafeCru = cafeCru;
 
     }
 
-    public int getCafeTorrado() {
+    public double getCafeTorrado() {
         return cafeTorrado;
     }
 
-    public void setCafeTorrado(int cafeTorrado) {
+    public void setCafeTorrado(double cafeTorrado) {
         this.cafeTorrado = cafeTorrado;
     }
 
-    public int getCafeMoido() {
+    public double getCafeMoido() {
         return cafeMoido;
     }
 
-    public void setCafeMoido(int cafeMoido) {
+    public void setCafeMoido(double cafeMoido) {
         this.cafeMoido = cafeMoido;
     }
     
-    public void comprarCafeCru(int quantidade, Fornecedor fornecedor) {
-        if (quantidade <= fornecedor.getCafeCru()) {
-            setCafeCru(getCafeCru() + quantidade);
-            fornecedor.setCafeCru(fornecedor.getCafeCru() - quantidade);
-            System.out.println("Compra de café cru realizada com sucesso!");
-        } else {
-            System.out.println("Não há café cru suficiente no estoque do fornecedor.");
-        }
+    public boolean isCartaoFidelidade() {
+        return cartaoFidelidade;
     }
-    
-    public void comprarCafeTorrado(int quantidade, Fornecedor fornecedor) {
-        if (quantidade <= fornecedor.getCafeTorrado()) {
-            setCafeTorrado(getCafeTorrado() + quantidade);
-            fornecedor.setCafeTorrado(fornecedor.getCafeTorrado() - quantidade);
-            System.out.println("\n Compra de café torrado realizada com sucesso!");
-        } else {
-            System.out.println("\n Não há café torrado suficiente no estoque do fornecedor.");
-        }
-    }
-    
-    public void comprarCafeMoido(int quantidade, Fornecedor fornecedor) {
-        if (quantidade <= fornecedor.getCafeMoido()) {
-            setCafeMoido(getCafeMoido() + quantidade);
-            fornecedor.setCafeMoido(fornecedor.getCafeMoido() - quantidade);
-            System.out.println("\n Compra de café moido realizada com sucesso!");
-        } else {
-            System.out.println("\n Não há café moido suficiente no estoque do fornecedor.");
-        }
+
+    public void setCartaoFidelidade(boolean cartaoFidelidade) {
+        this.cartaoFidelidade = cartaoFidelidade;
     }
   
-    @Override
+  
+  
     public void imprimirEstoque() {
-        System.out.println("\n Estoque de café cru: " + getCafeCru());
-        System.out.println("Estoque de café torrado: " + getCafeTorrado());
-        System.out.println("Estoque de café moído: " + getCafeMoido());
+        System.out.println("Valor Total do capital:  " + capital);
+        System.out.println("\n Estoque de café cru: " + cafeCru);
+        System.out.println("Estoque de café torrado: " + cafeTorrado);
+        System.out.println("Estoque de café moído: " + cafeMoido);
+        System.out.println("Total de Estoque:  "+ (cafeCru + cafeMoido + cafeTorrado));
     }
+
   
+
+    
+
+
+
+
     }
 
    

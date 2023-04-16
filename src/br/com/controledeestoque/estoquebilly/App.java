@@ -1,34 +1,36 @@
 package br.com.controledeestoque.estoquebilly;
 
+import br.com.controledeestoque.metodos.SistemaDeCompra;
+
 public class App {
     public static void main(String[] args) throws Exception {
-     
-        Fornecedor fornecedor = new Fornecedor();
-        fornecedor.setCafeCru(10);
-        fornecedor.setCafeMoido(10);
-        fornecedor.setCafeTorrado(10);
-     
 
-        PessoaJuridica pessoaJuridica = new PessoaJuridica("12345644", false, 25.99);
-        pessoaJuridica.setNome(" Café Mania");
+        Fornecedor fornecedor = new Fornecedor();        
+        SistemaDeCompra sistemaDeCompra = new SistemaDeCompra();
+
+        fornecedor.setCafeCru(1000);
+        fornecedor.setCafeMoido(1000);
+        fornecedor.setCafeTorrado(1000);
+        
+
+        PessoaJuridica pessoaJuridica = new PessoaJuridica("Café Mania","12345644", true, 10000.00);
         pessoaJuridica.dadosPessoaJuridica();
-       pessoaJuridica.comprarCafeCru(5, fornecedor);
+        sistemaDeCompra.comprarCafeCru(200, fornecedor, pessoaJuridica);
+        System.out.println("\n ESTOQUE DO CAFÉ MANIA");
+        pessoaJuridica.imprimirEstoque();
 
-        PessoaJuridica pessoaJuridica2 = new PessoaJuridica("987654321", true, 30000.98);
-        pessoaJuridica2.setNome(" Cafe do Caval");
+
+
+        PessoaJuridica pessoaJuridica2 = new PessoaJuridica("Cafe Caval", "123456789858", false, 10000);
         pessoaJuridica2.dadosPessoaJuridica();
-        pessoaJuridica2.comprarCafeCru(2, fornecedor);
+        sistemaDeCompra.comprarCafeCru(200, fornecedor, pessoaJuridica2);
+        System.out.println("\n ESTOQUE DO CAFÉ CAVAL");
+        pessoaJuridica2.imprimirEstoque();
 
-        PessoaFisica pessoaFisica = new PessoaFisica("12345645457", true, 10000.00);
-        pessoaFisica.setNome(" Lucas brito");
-        pessoaFisica.dadosPessoaFisica();
-        pessoaFisica.comprarCafeCru(3, fornecedor);
-        pessoaFisica.comprarCafeMoido(5, fornecedor);
-      
-           
-         
-           fornecedor.imprimirEstoque();
-            pessoaFisica.imprimirEstoque();
-            pessoaJuridica.imprimirEstoque();
+
+        System.out.println(fornecedor.getCapital());
+        fornecedor.imprimirEstoque();
+
+        System.out.println(sistemaDeCompra.getCapital());
     }
 }

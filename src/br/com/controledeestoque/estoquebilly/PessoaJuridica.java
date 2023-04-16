@@ -1,39 +1,37 @@
 package br.com.controledeestoque.estoquebilly;
 
-import br.com.controledeestoque.metodos.Estoque;
 
-public class PessoaJuridica extends Fornecedor implements Estoque{
+public class PessoaJuridica extends Fornecedor{
     private String cnpj;
-    private boolean  empresaParceira;
+   
+    
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
 
     public String getCnpj() {
         return cnpj;
     }
 
-    public boolean isEmpresaParceira() {
-        return empresaParceira;
-    }
 
-    public PessoaJuridica(String cnpj, boolean empresaParceira, double setCapital) {
+
+    public PessoaJuridica(String setNome, String cnpj, boolean cartaoFidelidade, double setCapital) {
+        super.setNome(setNome);
         this.cnpj = cnpj;
-        this.empresaParceira = empresaParceira;
+      super.setCartaoFidelidade(cartaoFidelidade);
         super.setCapital(setCapital);
   
     }
 
     public void dadosPessoaJuridica() {
+       
         System.out.println("\n Nome da Empresa: " + getNome());
         System.out.println("Cnpj da Empresa:  " + getCnpj());
-        System.out.println("É Empresa Parceira:   " + isEmpresaParceira());
-        System.out.println("Total do Capital:  " + getCapital());
+        System.out.println("É Empresa Parceira:   " + isCartaoFidelidade());
+        
     }
 
-    @Override
-    public void imprimirEstoque() {
-        System.out.println("\n Estoque de café cru: " + getCafeCru());
-        System.out.println("Estoque de café torrado: " + getCafeTorrado());
-        System.out.println("Estoque de café moído: " + getCafeMoido());
-    }
+
     }
 
     
