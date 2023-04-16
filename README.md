@@ -1,4 +1,4 @@
-# Controle-De-Estoque
+# Controle-De-Estoque 
 Gerenciamento de Estoque de Vendas de Café: Explorando Orientação a Objetos e Polimorfismo
 
 O propósito deste projeto consiste em estabelecer um fornecedor de café que disponibilize aos seus clientes - tanto pessoas físicas quanto jurídicas - uma ampla gama de opções de café, desde o café cru até o café torrado e moído. Todas as transações comerciais serão intermediadas por meio de um sistema de compras. O estoque do fornecedor é composto por 1000 kg de cada tipo de café, sendo que o valor unitário por kg é de R$ 4,50 para o café cru, R$ 5,50 para o café torrado e R$ 6,50 para o café moído.
